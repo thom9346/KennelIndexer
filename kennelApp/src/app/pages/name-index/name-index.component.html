@@ -1,4 +1,11 @@
 <!--Search field-->
+<button nz-button [nzSize]="size" nzType="primary" (click)="showModal()">Add to list</button>
+<br />
+<br />
+
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add People To Blacklist" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <app-add-people></app-add-people>
+</nz-modal>
 
 <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
   <input type="text"
@@ -18,16 +25,16 @@
 <nz-table #basicTable [nzData]="listOfData">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
+        <th>Adress</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of basicTable.data | filter : 'name' : searchString; let i = index">
-        <td>{{data.name}}</td>
-        <td>{{data.age}}</td>
+        <td>{{data.id}}</td>
+        <td>{{data.firstName}} {{data.lastName}}</td>
         <td>{{data.address}}</td>
         <td>
           <a>Action 一 {{data.name}}</a>

@@ -18,6 +18,9 @@ import { FilterPipe } from './pipes/filter.pipe'
 //ng-zorro
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { AddPeopleComponent } from './modals/add-people/add-people.component';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
 
 registerLocaleData(en);
 
@@ -25,7 +28,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     NameIndexComponent,
-    FilterPipe
+    FilterPipe,
+    AddPeopleComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     NzTableModule,
-    NzInputModule
+    NzInputModule,
+    NzModalModule,
+    NzProgressModule
   ],
   exports: [
     FilterPipe

@@ -1,0 +1,37 @@
+<label><strong>First Name</strong></label>
+<input nz-input placeholder="First Name" [(ngModel)]="firstName" required/>
+<br />
+<br />
+<label><strong>Last Name</strong></label>
+<input nz-input placeholder="Last Name" [(ngModel)]="lastName" required />
+<br />
+<br />
+<label><strong>Address</strong></label>
+<input nz-input placeholder="Address" [(ngModel)]="address" />
+
+<br />
+<br />
+<label><strong>Additional comments</strong> (i.e. why is this person on the list?)</label>
+<textarea rows="4" nz-input [(ngModel)]="reasonsForBeingOnTheList"></textarea>
+
+<br/>
+<br/>
+<label><strong>Add pictures</strong></label>
+
+<div class="col-md-4">
+<div class="row" style="margin-bottom:15px;">
+  <div class="col-md-3 upload-button">
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"> <!---->
+  </div>
+
+  <div class="progress-bar">
+    <span class="upload" *ngIf="progress > 0">
+
+        <nz-progress [nzPercent]="progress" [nzWidth]="40" nzType="circle"></nz-progress>
+
+    </span>
+  </div>
+</div>
+
+<br />
+<br />
