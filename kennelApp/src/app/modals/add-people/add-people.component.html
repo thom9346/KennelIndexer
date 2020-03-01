@@ -1,4 +1,56 @@
-<label><strong>First Name</strong></label>
+
+<form nz-form [formGroup]="validateForm">
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="firstName" nzRequired>First name</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input a first name!">
+      <input nz-input id="firstName" formControlName="firstName" [(ngModel)]="firstName"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="lastName" nzRequired>Last name</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Please input a last name!">
+      <input nz-input id="lastName" formControlName="lastName" [(ngModel)]="lastName" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address">Address</nz-form-label>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+       <input nz-input id="address"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}" />
+      </nz-form-control>
+  </nz-form-item>
+  
+  <nz-form-item>
+    <nz-form-label [nzSm]="20" [nzXs]="54" nzFor="reasonsForBeingOnTheList"><strong>Additional comments</strong> (i.e. why is this person on the list?)</nz-form-label>
+    <nz-form-control [nzSm]="40" [nzXs]="54">
+      <textarea rows="4" nz-input [(ngModel)]="reasonsForBeingOnTheList" [ngModelOptions]="{standalone: true}"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <label><strong>Add pictures</strong></label>
+  
+  <div class="col-md-4">
+  <div class="row" style="margin-bottom:15px;">
+    <div class="col-md-3 upload-button">
+      <input type="file" #fileUpload placeholder="Choose file" (change)="onFileSelected($event)"> 
+    </div>
+  
+    <div class="progress-bar">
+      <span class="upload" *ngIf="progress > 0">
+  
+          <nz-progress [nzPercent]="progress" [nzWidth]="40" nzType="circle"></nz-progress>
+  
+      </span>
+    </div>
+  </div>
+</div>
+<br/>
+<br/>
+  
+<!--  <label><strong>First Name</strong></label>
 <input nz-input placeholder="First Name" [(ngModel)]="firstName" required/>
 <br />
 <br />
@@ -21,7 +73,7 @@
 <div class="col-md-4">
 <div class="row" style="margin-bottom:15px;">
   <div class="col-md-3 upload-button">
-    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"> <!---->
+    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"> 
   </div>
 
   <div class="progress-bar">
@@ -35,3 +87,6 @@
 
 <br />
 <br />
+
+-->
+</form>

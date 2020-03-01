@@ -10,6 +10,7 @@
 <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
   <input type="text"
       nz-input
+      name="searchString"
       placeholder="Search for name"
       [(ngModel)]="searchString" />
 </nz-input-group>
@@ -32,12 +33,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of basicTable.data | filter : 'name' : searchString; let i = index">
+      <tr *ngFor="let data of basicTable.data | filter : 'firstName' : searchString; let i = index">
         <td>{{data.id}}</td>
-        <td>{{data.firstName}} {{data.lastName}}</td>
+        <td>{{data.firstName}}</td> <!--This is actually fullname...-->
         <td>{{data.address}}</td>
         <td>
-          <a>Action 一 {{data.name}}</a>
+          <a>View</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Edit</a>
           <nz-divider nzType="vertical"></nz-divider>
           <a>Delete</a>
         </td>

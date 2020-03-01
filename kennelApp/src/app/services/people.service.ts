@@ -11,22 +11,14 @@ export class PeopleService {
 
   constructor(private httpClient : HttpClient) { }
 
-  BASEURL = 'http://localhost:52834/api/';
+  BASEURL = 'http://localhost:5000/api/';
 
-  postPeople(people: Person) {
-    return this.httpClient.post(this.BASEURL + "people", people)
+
+  postPeopleWithImage(formData: FormData){
+    return this.httpClient.post(this.BASEURL + "people", formData)
   }
 
   getPeople(){
     return this.httpClient.get<Person[]>(this.BASEURL + "people");
   }
-
-  uploadPicture(formData: FormData) {
-    return this.httpClient.post(this.BASEURL + "UploadImage", formData, {reportProgress: true, observe: 'events'});
-  }
-  postImage(image: Image) {
-
-    return this.httpClient.post(this.BASEURL + "images", image);
-  }
-
 }

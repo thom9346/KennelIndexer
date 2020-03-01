@@ -13,6 +13,11 @@ export class FilterPipe implements PipeTransform {
       return items;
     }
 
+    console.log(items.filter(s => {
+      console.log("single item:");
+      console.log(s[field]);
+      console.log(s);
+    }));
     return items.filter(singleItem =>
       singleItem[field].toLowerCase().includes(value.toLowerCase())
     );

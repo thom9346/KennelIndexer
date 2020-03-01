@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IconsProviderModule } from './icons-provider.module';
 import { NgZorroAntdModule, NZ_I18N, en_US } from 'ng-zorro-antd';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -21,6 +21,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { AddPeopleComponent } from './modals/add-people/add-people.component';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { PersonDetailsComponent } from './person-details/person-details.component';
 
 registerLocaleData(en);
 
@@ -29,7 +31,8 @@ registerLocaleData(en);
     AppComponent,
     NameIndexComponent,
     FilterPipe,
-    AddPeopleComponent
+    AddPeopleComponent,
+    PersonDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -37,12 +40,14 @@ registerLocaleData(en);
     IconsProviderModule,
     NgZorroAntdModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzTableModule,
     NzInputModule,
     NzModalModule,
-    NzProgressModule
+    NzProgressModule,
+    NzFormModule
   ],
   exports: [
     FilterPipe
