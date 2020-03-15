@@ -5,9 +5,10 @@ import { PersonDetailsComponent } from './person-details/person-details.componen
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/names' },
+  {path: '', pathMatch: 'full', redirectTo: '/names' },
   {path: 'names', component: NameIndexComponent},
-  {path: 'names/:id', component: PersonDetailsComponent}
+  {path: 'names/:id', component: PersonDetailsComponent},
+  
   
 ];
 

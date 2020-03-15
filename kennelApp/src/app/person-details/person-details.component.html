@@ -1,4 +1,14 @@
-<div>
-   <p>{{person.firstName}}</p>
-    <p>{{person.lastName}}</p>
+
+<div class="main-div">
+  <nz-card nzHoverable class="nzcard" [nzCover]="coverTemplate">
+    <nz-card-meta nzTitle="{{person.firstName}} {{person.lastName}}" nzDescription="Adress: {{person.address}}"></nz-card-meta>
+    <p>{{person.reasonsForBeingOnTheList}}</p>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <nz-carousel [nzEffect]="effect">
+        <div nz-carousel-content *ngFor="let index of images">
+            <img alt="relatedPics" [src]='index' />
+        </div>
+      </nz-carousel>
+  </ng-template>
 </div>

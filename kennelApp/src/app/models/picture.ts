@@ -1,7 +1,7 @@
 import { Person } from './person';
 
-export class Image {
-    imageURL: String;
+export class Picture {
+    pictureUri: string;
     person: Person;
    // formData: FormData;
 }

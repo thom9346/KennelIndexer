@@ -4,5 +4,5 @@ export class Person {
     lastName: String;
     address?: String;
     reasonsForBeingOnTheList?: String;
-    imageURL?: String;
+    pictureUri?: String;
 }

@@ -3,7 +3,6 @@ import { PeopleService } from 'src/app/services/people.service';
 import { Person } from 'src/app/models/person';
 import { AddPeopleComponent } from 'src/app/modals/add-people/add-people.component';
 import { HttpEventType } from '@angular/common/http';
-import { Image } from '../../models/image';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,7 +21,6 @@ export class NameIndexComponent implements OnInit {
   listOfData:Person[] = [];
   fullName: string;
   newlyAddedPerson: Person;
-  imageToPerson: Image;
   
 
   constructor(private peopleService: PeopleService) { }

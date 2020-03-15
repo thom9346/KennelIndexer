@@ -1,0 +1,25 @@
+[nz-carousel-content] {
+    text-align: center;
+    height: 160px;
+    line-height: 160px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  h3 {
+    color: #fff;
+  }
+
+  .main-div{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nzcard {
+      height: 400px;
+      width: 400px;
+      justify-content: center;
+  }

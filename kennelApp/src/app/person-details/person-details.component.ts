@@ -14,6 +14,9 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
   personId: string;
   person: Person;
 
+  images = [];
+  effect = 'scrollx';
+
   constructor(private route: ActivatedRoute, private peopleService: PeopleService) { }
 
   ngOnInit() {
@@ -31,9 +34,16 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
         firstName: res.firstName, 
         lastName: res.lastName,
         address: res.address,
-        reasonsForBeingOnTheList: res.reasonsForBeingOnTheList
+        reasonsForBeingOnTheList: res.reasonsForBeingOnTheList,
       }
     });
+    this.peopleService.getPictures(this.personId).subscribe(pics => {
+
+      pics.forEach(element => {
+        this.images.push(element.pictureUri);
+      });
+      console.log(this.images);
+    })
    }
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { PeopleService } from 'src/app/services/people.service';
-import { Image } from 'src/app/models/image';
 import { Person } from 'src/app/models/person';
 import { HttpEventType } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
@@ -17,7 +16,6 @@ export class AddPeopleComponent implements OnInit {
   address: string; 
   reasonsForBeingOnTheList: string;
   fullFileName: string;
-  image: Image;
   person: Person;
   selectedFile:File;
   yotest: string;

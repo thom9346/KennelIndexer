@@ -23,7 +23,8 @@ import { AddPeopleComponent } from './modals/add-people/add-people.component';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { PersonDetailsComponent } from './person-details/person-details.component';
-
+import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 registerLocaleData(en);
 
 @NgModule({
@@ -47,7 +48,9 @@ registerLocaleData(en);
     NzInputModule,
     NzModalModule,
     NzProgressModule,
-    NzFormModule
+    NzFormModule,
+    NzDescriptionsModule,
+    NzCarouselModule
   ],
   exports: [
     FilterPipe

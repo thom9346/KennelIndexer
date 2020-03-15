@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from '../models/person';
-import { Image } from '../models/image';
+import { Picture } from '../models/picture';
 
 
 @Injectable({
@@ -24,5 +24,9 @@ export class PeopleService {
 
   getPerson(id: string) {
     return this.httpClient.get<Person>(this.BASEURL + "people/" + id);
+  }
+
+  getPictures(id: string) {
+    return this.httpClient.get<Picture[]>(this.BASEURL + "pictures/" + id)
   }
 }
