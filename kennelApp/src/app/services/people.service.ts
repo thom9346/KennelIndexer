@@ -21,4 +21,8 @@ export class PeopleService {
   getPeople(){
     return this.httpClient.get<Person[]>(this.BASEURL + "people");
   }
+
+  getPerson(id: string) {
+    return this.httpClient.get<Person>(this.BASEURL + "people/" + id);
+  }
 }

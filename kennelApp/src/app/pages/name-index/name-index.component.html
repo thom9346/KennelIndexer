@@ -38,7 +38,7 @@
         <td>{{data.firstName}}</td> <!--This is actually fullname...-->
         <td>{{data.address}}</td>
         <td>
-          <a>View</a>
+          <a [routerLink]="['/names', data.personId]">View</a>
           <nz-divider nzType="vertical"></nz-divider>
           <a>Edit</a>
           <nz-divider nzType="vertical"></nz-divider>

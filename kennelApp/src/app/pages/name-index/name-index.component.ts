@@ -4,6 +4,7 @@ import { Person } from 'src/app/models/person';
 import { AddPeopleComponent } from 'src/app/modals/add-people/add-people.component';
 import { HttpEventType } from '@angular/common/http';
 import { Image } from '../../models/image';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -14,6 +15,7 @@ export class NameIndexComponent implements OnInit {
 
 
   @ViewChild(AddPeopleComponent, {static: false}) addPerson;
+
   public searchString: string;
   public isVisible = false;
 
@@ -22,6 +24,7 @@ export class NameIndexComponent implements OnInit {
   newlyAddedPerson: Person;
   imageToPerson: Image;
   
+
   constructor(private peopleService: PeopleService) { }
 
 
@@ -42,6 +45,7 @@ export class NameIndexComponent implements OnInit {
           element.lastName = fullName;
           this.listOfData.push(element)
          });   
+         console.log(this.listOfData);
              
          this.listOfData = response;
        },
