@@ -16,7 +16,7 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
 
   images = [];
   effect = 'scrollx';
-
+  test = '102e8b4e-ce49-4aba-80ff-65fc2944ee09.JPG';
   constructor(private route: ActivatedRoute, private peopleService: PeopleService) { }
 
   ngOnInit() {
@@ -42,6 +42,7 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
       pics.forEach(element => {
         this.images.push(element.pictureUri);
       });
+      console.log("from this.image xD")
       console.log(this.images);
     })
    }
