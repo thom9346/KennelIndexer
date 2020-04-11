@@ -1,16 +1,18 @@
 
 <div class="main-div" *ngIf="person != undefined">
-  <nz-card nzHoverable class="nzcard" [nzCover]="coverTemplate">
+<div [ngClass]="{'nzcard': images.length < 0, 'nzcard-withpic': images.length > 0}">
+  <nz-card nzHoverable [nzCover]="coverTemplate">
     <nz-card-meta nzTitle="{{person.firstName}} {{person.lastName}}" nzDescription="Adress: {{person.address}}"></nz-card-meta>
     <p>{{person.reasonsForBeingOnTheList}}</p>
   </nz-card>
+</div>
   <ng-template #coverTemplate>
-    <nz-carousel [nzEffect]="effect">
-        <div nz-carousel-content *ngFor="let image of images">
-          <div *ngIf="image!=undefined">
-            <img alt="relatedPics" src='../../assets/images/{{image}}' />
-          </div>        
+  <nz-carousel [nzEffect]="effect">
+      <div nz-carousel-content *ngFor="let image of images">
+        <div>
+          <img alt="relatedPics" src='http://localhost:5000/{{image}}' height="600px" width="100%"/> 
         </div>
+      </div>
       </nz-carousel>
   </ng-template>
 </div>
