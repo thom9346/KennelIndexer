@@ -16,24 +16,25 @@
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address">Address</nz-form-label>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="address">Address (Optional)</nz-form-label>
       <nz-form-control [nzSm]="14" [nzXs]="24">
        <input nz-input id="address"  [(ngModel)]="address" [ngModelOptions]="{standalone: true}" />
       </nz-form-control>
   </nz-form-item>
   
   <nz-form-item>
-    <nz-form-label [nzSm]="20" [nzXs]="54" nzFor="reasonsForBeingOnTheList"><strong>Additional comments</strong> (i.e. why is this person on the list?)</nz-form-label>
+    <nz-form-label [nzSm]="20" [nzXs]="54" nzFor="reasonsForBeingOnTheList"><strong>Additional comments (Optional)</strong> (i.e. why is this person on the list?)</nz-form-label>
     <nz-form-control [nzSm]="40" [nzXs]="54">
       <textarea rows="4" nz-input [(ngModel)]="reasonsForBeingOnTheList" [ngModelOptions]="{standalone: true}"></textarea>
     </nz-form-control>
   </nz-form-item>
 
-
-  <label><strong>Add pictures</strong></label>
-  
+<nz-form-item>
+    <nz-form-label [nzSm]="10" [nzXs]="30" nzFor="address"> <strong>Add Pictures (Optional) </strong></nz-form-label>
+</nz-form-item>
   <div class="col-md-4">
     <div class="uploadfilecontainer" (click)="fileUpload.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+      <h4 class="center-text">Drag and drop or click anywhere in the box to upload pictures.</h4>
       <input hidden type="file" #fileUpload (change)="uploadFile($event.target.files)">
     </div>
     <div class="files-list" *ngFor="let file of files;let i= index">

@@ -21,6 +21,7 @@ export class NameIndexComponent implements OnInit {
   listOfData:Person[] = [];
   fullName: string;
   newlyAddedPerson: Person;
+  isSpinning = false;
   
 
   constructor(private peopleService: PeopleService) { }
@@ -53,7 +54,6 @@ export class NameIndexComponent implements OnInit {
 
   handleOk(): void {
     const fd = new FormData();
-
     if(this.addPerson.firstName != null || undefined && this.addPerson.lastName != null || undefined) 
     {
       fd.append("firstName", this.addPerson.firstName);
@@ -82,13 +82,33 @@ export class NameIndexComponent implements OnInit {
 
         console.log("fd right before post");
         console.log(fd)
-        this.peopleService.postPeopleWithImage(fd).subscribe(res => {console.log(res)});
+        this.isSpinning = true;
+        this.peopleService.postPeopleWithImage(fd).subscribe(res  => {
+          console.log("yep this is res XD")
+          console.log(res)
+          let a = res as Person;
+          console.log(a.firstName)
+          
+          this.isSpinning = false;
+          this.isVisible = false;
+          this.addPerson.validateForm.reset();
+          this.addPerson.address = '';
+          this.addPerson.reasonsForBeingOnTheList = '';
+          this.addPerson.reset();
+                
+          this.listOfData = [
+            ...this.listOfData, 
+            {
+              personId: a.personId,
+              firstName: a.firstName + " " + a.lastName,
+              lastName: a.lastName,
+              address: a.address,
+              reasonsForBeingOnTheList: a.reasonsForBeingOnTheList
+            }
+          ];
+        });
 
-        this.isVisible = false;
-        this.addPerson.validateForm.reset();
-        this.addPerson.address = '';
-        this.addPerson.reasonsForBeingOnTheList = '';
-        this.addPerson.reset();
+    
 
     } 
 

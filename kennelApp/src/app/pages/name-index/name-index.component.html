@@ -3,9 +3,12 @@
 <br />
 <br />
 
-<nz-modal [(nzVisible)]="isVisible" nzTitle="Add People To Blacklist" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add People To Blacklist" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" nzWidth="600" [nzOkDisabled]="isSpinning" [nzCancelDisabled]="isSpinning">
+<nz-spin [nzSpinning]="isSpinning">
   <app-add-people></app-add-people>
+</nz-spin>
 </nz-modal>
+
 
 <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
   <input type="text"

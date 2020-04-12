@@ -27,6 +27,7 @@ import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { DragDropDirective } from './directives/drag-drop.directive';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
 registerLocaleData(en);
 
 @NgModule({
@@ -54,7 +55,8 @@ registerLocaleData(en);
     NzFormModule,
     NzDescriptionsModule,
     NzCarouselModule,
-    NzUploadModule
+    NzUploadModule,
+    NzSpinModule
   ],
   exports: [
     FilterPipe

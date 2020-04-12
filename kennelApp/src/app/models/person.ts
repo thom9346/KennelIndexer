@@ -1,5 +1,6 @@
 
 export class Person {
+    personId?: String;
     firstName: String;
     lastName: String;
     address?: String;
