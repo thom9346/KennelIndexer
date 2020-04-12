@@ -61,12 +61,27 @@ export class NameIndexComponent implements OnInit {
       fd.append("address", this.addPerson.address);
       fd.append("reasonsForBeingOnTheList", this.addPerson.reasonsForBeingOnTheList);
 
+      console.log("FROM name-index with add.person.selectedfile");
+      console.log(this.addPerson.selectedFile);
        if(this.addPerson.selectedFile != null || undefined) 
         {
-          fd.append("files", this.addPerson.selectedFile, this.addPerson.selectedFile.name);
+          this.addPerson.selectedFile.forEach(element => {
+            Array.from(element).map((file:any, index) => {
+              console.log("this is from map");
+              console.log(file);
+              console.log(index);
+             
+              fd.append("files"+index, file, file.name);
+            })
+
+          });
+      
+          // fd.append("files", this.addPerson.selectedFile, this.addPerson.selectedFile.name);
           this.addPerson.selectedFile = null;
         }
 
+        console.log("fd right before post");
+        console.log(fd)
         this.peopleService.postPeopleWithImage(fd).subscribe(res => {console.log(res)});
 
         this.isVisible = false;

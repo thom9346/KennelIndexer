@@ -3,6 +3,8 @@ import { PeopleService } from 'src/app/services/people.service';
 import { Person } from 'src/app/models/person';
 import { HttpEventType } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { UploadChangeParam } from 'ng-zorro-antd/upload';
 
 @Component({
   selector: 'app-add-people',
@@ -17,7 +19,7 @@ export class AddPeopleComponent implements OnInit {
   reasonsForBeingOnTheList: string;
   fullFileName: string;
   person: Person;
-  selectedFile:File;
+  selectedFile:File[] = [];
   yotest: string;
 
   public progress: number;
@@ -36,7 +38,7 @@ export class AddPeopleComponent implements OnInit {
   @ViewChild('fileInput', {static: false}) fileInput:any;
   @ViewChild('fileUpload', {static: false}) elementRef: ElementRef;
 
-  constructor(private peopleService: PeopleService, private fb: FormBuilder) { }
+  constructor(private peopleService: PeopleService, private fb: FormBuilder, private msg: NzMessageService) { }
   
 
   ngOnInit() {
@@ -51,7 +53,36 @@ export class AddPeopleComponent implements OnInit {
   }
 
   onFileSelected(event){
+    console.log(event.target.files[0]);
     this.selectedFile = event.target.files[0];
+  }
+
+  public uploadFile = (files) => {
+    if (files.length === 0) {
+      return;
+    }
+    this.selectedFile.push(files);
+
+    console.log("from uploadfile..")
+    console.log(files);
+    console.log(this.selectedFile);
+
+    // const formData = new FormData();
+      
+    // Array.from(filesToUpload).map((file, index) => {
+    //   return formData.append('file'+index, file, file.name);
+    // });
+  
+    // this.http.post('https://localhost:5001/api/upload', formData, {reportProgress: true, observe: 'events'})
+    //   .subscribe(event => {
+    //     if (event.type === HttpEventType.UploadProgress)
+    //       this.progress = Math.round(100 * event.loaded / event.total);
+    //     else if (event.type === HttpEventType.Response) {
+    //       this.message = 'Upload success.';
+    //       this.onUploadFinished.emit(event.body);
+    //     }
+    //   });
+  }
   }
   
 
@@ -95,4 +126,3 @@ export class AddPeopleComponent implements OnInit {
  // }
 
 
-}

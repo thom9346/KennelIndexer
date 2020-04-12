@@ -25,6 +25,8 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { PersonDetailsComponent } from './person-details/person-details.component';
 import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { DragDropDirective } from './directives/drag-drop.directive';
 registerLocaleData(en);
 
 @NgModule({
@@ -33,7 +35,8 @@ registerLocaleData(en);
     NameIndexComponent,
     FilterPipe,
     AddPeopleComponent,
-    PersonDetailsComponent
+    PersonDetailsComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ registerLocaleData(en);
     NzProgressModule,
     NzFormModule,
     NzDescriptionsModule,
-    NzCarouselModule
+    NzCarouselModule,
+    NzUploadModule
   ],
   exports: [
     FilterPipe

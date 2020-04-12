@@ -30,6 +30,11 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
      console.log("hello")
     this.peopleService.getPerson(this.personId).subscribe(res => {
       console.log(res);
+      res.firstName == 'undefined' ? res.firstName = '' : res.firstName = res.firstName;
+      res.lastName == 'undefined' ? res.lastName = '' : res.lastName = res.lastName;
+      res.address == 'undefined' ? res.address = '': res.address = res.address;
+      res.reasonsForBeingOnTheList == 'undefined' ? res.reasonsForBeingOnTheList = '' : res.reasonsForBeingOnTheList = res.reasonsForBeingOnTheList;
+      
       this.person = {
         firstName: res.firstName, 
         lastName: res.lastName,
