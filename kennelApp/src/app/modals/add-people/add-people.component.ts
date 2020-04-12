@@ -20,7 +20,7 @@ export class AddPeopleComponent implements OnInit {
   fullFileName: string;
   person: Person;
   selectedFile:File[] = [];
-  yotest: string;
+  files: any = [];
 
   public progress: number;
   public message: string;
@@ -28,8 +28,6 @@ export class AddPeopleComponent implements OnInit {
   public isImageUploading: boolean = false;
 
   public formData = new FormData();
-
-
 
   validateForm: FormGroup;
 
@@ -61,29 +59,18 @@ export class AddPeopleComponent implements OnInit {
     if (files.length === 0) {
       return;
     }
+    for (let index = 0; index < files.length; index++) {
+      const element = files[index];
+      this.files.push(element.name);
+    }
     this.selectedFile.push(files);
-
-    console.log("from uploadfile..")
-    console.log(files);
-    console.log(this.selectedFile);
-
-    // const formData = new FormData();
-      
-    // Array.from(filesToUpload).map((file, index) => {
-    //   return formData.append('file'+index, file, file.name);
-    // });
-  
-    // this.http.post('https://localhost:5001/api/upload', formData, {reportProgress: true, observe: 'events'})
-    //   .subscribe(event => {
-    //     if (event.type === HttpEventType.UploadProgress)
-    //       this.progress = Math.round(100 * event.loaded / event.total);
-    //     else if (event.type === HttpEventType.Response) {
-    //       this.message = 'Upload success.';
-    //       this.onUploadFinished.emit(event.body);
-    //     }
-    //   });
   }
+  deleteAttachment(index) {
+    this.selectedFile = [];
+    this.files.splice(index, 1);
+    this.selectedFile.push(this.files);
   }
+}
   
 
 /*   public uploadFile = (files) => {

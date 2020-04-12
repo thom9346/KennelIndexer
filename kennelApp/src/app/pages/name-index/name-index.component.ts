@@ -69,7 +69,7 @@ export class NameIndexComponent implements OnInit {
             Array.from(element).map((file:any, index) => {
               console.log("this is from map");
               console.log(file);
-              console.log(index);
+              console.log(element);
              
               fd.append("files"+index, file, file.name);
             })
@@ -89,7 +89,7 @@ export class NameIndexComponent implements OnInit {
         this.addPerson.address = '';
         this.addPerson.reasonsForBeingOnTheList = '';
         this.addPerson.reset();
-        
+
     } 
 
     else 

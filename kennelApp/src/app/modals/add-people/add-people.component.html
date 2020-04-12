@@ -33,86 +33,16 @@
   <label><strong>Add pictures</strong></label>
   
   <div class="col-md-4">
-    
-      <!-- <nz-upload
-      nzType="drag"
-      [nzMultiple]="true"
-      [nzLimit]="2"
-      nzAction="https://jsonplaceholder.typicode.com/posts/"
-      (nzChange)="handleChange($event)"
-    >
-      <p class="ant-upload-drag-icon">
-        <i nz-icon nzType="inbox"></i>
-      </p>
-      <p class="ant-upload-text">Click or drag file to this area to upload</p>
-    </nz-upload> -->
-
-
-    <input type="file" #fileUpload placeholder="Choose file" (change)="uploadFile(fileUpload.files)" style="display:none;">
-    <button type="button" class="btn btn-success" (click)="fileUpload.click()">Upload File</button>
-  </div>
-  <div class="col-md-4">
-    <span class="upload" *ngIf="progress > 0">
-      {{progress}}%
-    </span>
-    <span class="upload" *ngIf="message">
-      {{message}}
-    </span>
-
-  <!-- <div class="row" style="margin-bottom:15px;">
-    <div class="col-md-3 upload-button">
-      <input type="file" #fileUpload placeholder="Choose file" (change)="onFileSelected($event)"> 
+    <div class="uploadfilecontainer" (click)="fileUpload.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+      <input hidden type="file" #fileUpload (change)="uploadFile($event.target.files)">
     </div>
-  
-    <div class="progress-bar">
-      <span class="upload" *ngIf="progress > 0">
-  
-          <nz-progress [nzPercent]="progress" [nzWidth]="40" nzType="circle"></nz-progress>
-  
-      </span>
+    <div class="files-list" *ngFor="let file of files;let i= index">
+        <p> {{ file }} </p>
+        <button class="delete-file" (click)="deleteAttachment(i)">
+          <img src="../../assets/Recycle_Bin_Full.png">
+        </button>
     </div>
-  </div> -->
-</div>
-<br/>
-<br/>
-  
-<!--  <label><strong>First Name</strong></label>
-<input nz-input placeholder="First Name" [(ngModel)]="firstName" required/>
-<br />
-<br />
-<label><strong>Last Name</strong></label>
-<input nz-input placeholder="Last Name" [(ngModel)]="lastName" required />
-<br />
-<br />
-<label><strong>Address</strong></label>
-<input nz-input placeholder="Address" [(ngModel)]="address" />
-
-<br />
-<br />
-<label><strong>Additional comments</strong> (i.e. why is this person on the list?)</label>
-<textarea rows="4" nz-input [(ngModel)]="reasonsForBeingOnTheList"></textarea>
-
-<br/>
-<br/>
-<label><strong>Add pictures</strong></label>
-
-<div class="col-md-4">
-<div class="row" style="margin-bottom:15px;">
-  <div class="col-md-3 upload-button">
-    <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"> 
   </div>
-
-  <div class="progress-bar">
-    <span class="upload" *ngIf="progress > 0">
-
-        <nz-progress [nzPercent]="progress" [nzWidth]="40" nzType="circle"></nz-progress>
-
-    </span>
-  </div>
-</div>
-
-<br />
-<br />
-
--->
+  <br/>
+  <br/>
 </form>
