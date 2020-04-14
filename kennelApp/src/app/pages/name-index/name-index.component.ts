@@ -42,6 +42,9 @@ export class NameIndexComponent implements OnInit {
           let fullName =  firstName + " " + lastName
           element.firstName = fullName;
           element.lastName = fullName;
+          if(element.address == 'undefined') {
+            element.address = 'N/A'
+          }
           this.listOfData.push(element)
          });   
          console.log(this.listOfData);
@@ -95,7 +98,10 @@ export class NameIndexComponent implements OnInit {
           this.addPerson.address = '';
           this.addPerson.reasonsForBeingOnTheList = '';
           this.addPerson.reset();
-                
+
+          if(a.address == 'undefined' || null) {
+            a.address = 'N/A'
+          }
           this.listOfData = [
             ...this.listOfData, 
             {
@@ -128,6 +134,11 @@ export class NameIndexComponent implements OnInit {
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
+  }
+  deleteRow(id: string): void {
+    this.peopleService.deletePerson(id).subscribe(data => {
+      this.listOfData = this.listOfData.filter(d => d.personId !== id);
+    })
   }
 
 }

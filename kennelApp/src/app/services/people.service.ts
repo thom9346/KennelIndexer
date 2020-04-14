@@ -25,6 +25,9 @@ export class PeopleService {
   getPerson(id: string) {
     return this.httpClient.get<Person>(this.BASEURL + "people/" + id);
   }
+  deletePerson(id: string) {
+    return this.httpClient.delete<Person>(this.BASEURL + "people/" + id);
+  }
 
   getPictures(id: string) {
     return this.httpClient.get<Picture[]>(this.BASEURL + "pictures/" + id)
