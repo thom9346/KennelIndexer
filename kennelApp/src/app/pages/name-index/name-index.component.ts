@@ -113,20 +113,16 @@ export class NameIndexComponent implements OnInit {
             }
           ];
         });
-
-    
-
-    } 
-
-    else 
-    {
-      for(const i in this.addPerson.validateForm.controls) 
-      {
-        this.addPerson.validateForm.controls[i].markAsDirty();
-        this.addPerson.validateForm.controls[i].updateValueAndValidity();
       }
-      console.log("You need at least a firstname and lastname to post something.");
-    }
+      else 
+      {
+        for(const i in this.addPerson.validateForm.controls) 
+        {
+          this.addPerson.validateForm.controls[i].markAsDirty();
+          this.addPerson.validateForm.controls[i].updateValueAndValidity();
+        }
+        console.log("You need at least a firstname and lastname to post something.");
+      }
     
 
   }
